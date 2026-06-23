@@ -1016,7 +1016,177 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 
-// ── 15. BOOKING FORM → WHATSAPP ───────────────────
+// ── 15. BOOKING FORM → WHATSAPP & CUSTOM UI ───────
+
+// Custom Services Data
+const customServicesData = [
+  { group: 'Cut & Styling', icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12m0-12L6 18"/></svg>', services: [{ name: 'Hair Cut (Women)', price: '₹500' }, { name: 'Hair Cut (Men)', price: '₹200' }, { name: 'Hair Cut (Kids)', price: '₹150' }, { name: 'Blow Dry', price: '₹500' }, { name: 'Advanced Styling', price: '₹1100' }, { name: 'Hair Wash', price: '₹300' }] },
+  { group: 'Hair Colour', icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>', services: [{ name: 'Root Touch Up', price: '₹1300' }, { name: 'Global Colour (Short)', price: '₹2000' }, { name: 'Global Colour (Medium)', price: '₹2500' }, { name: 'Global Colour (Long)', price: '₹3500' }, { name: 'Highlights (Short)', price: '₹2500' }, { name: 'Highlights (Medium)', price: '₹3500' }, { name: 'Highlights (Long)', price: '₹4500' }, { name: 'Balayage', price: '₹7500' }] },
+  { group: 'Hair Texture', icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M4 6h16M4 18h16"/></svg>', services: [{ name: 'Smoothening (Short)', price: '₹5000' }, { name: 'Smoothening (Medium)', price: '₹7000' }, { name: 'Smoothening (Long)', price: '₹9000' }, { name: 'Rebonding (Short)', price: '₹5000' }, { name: 'Rebonding (Medium)', price: '₹7000' }, { name: 'Rebonding (Long)', price: '₹9000' }, { name: 'Cysteine Treatment', price: '₹6000' }, { name: 'Nanoplastia Treatment', price: '₹8000' }] },
+  { group: 'Hair Spa', icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>', services: [{ name: 'Moisturizing Hair Spa', price: '₹1200' }, { name: 'Color Save Hair Spa', price: '₹1500' }, { name: 'Dandruff Control Spa', price: '₹1500' }, { name: 'Damage Repair Spa', price: '₹1800' }, { name: 'Anti Hair Fall Spa', price: '₹1500' }, { name: 'Luxury Hair Spa', price: '₹2500' }] },
+  { group: 'Skin Care', icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>', services: [{ name: 'Basic Clean Up', price: '₹800' }, { name: 'Fruit Clean Up', price: '₹1000' }, { name: 'Detan Clean Up', price: '₹1200' }, { name: 'Gold Clean Up', price: '₹1500' }, { name: 'Hydra Facial', price: '₹3500' }, { name: 'Anti Acne Treatment', price: '₹2000' }, { name: 'Brightening Treatment', price: '₹2500' }] },
+  { group: 'Body Care', icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/></svg>', services: [{ name: 'Underarms Detan', price: '₹300' }, { name: 'Half Arms Detan', price: '₹500' }, { name: 'Full Arms Detan', price: '₹800' }, { name: 'Half Legs Detan', price: '₹600' }, { name: 'Full Legs Detan', price: '₹1000' }, { name: 'Lower Back / Upper Back Detan', price: '₹800' }, { name: 'Abdomen Detan', price: '₹800' }, { name: 'Full Body Detan', price: '₹3000' }, { name: 'Underarms Waxing', price: '₹200' }, { name: 'Half Arms Waxing', price: '₹400' }, { name: 'Full Arms Waxing', price: '₹600' }, { name: 'Half Legs Waxing', price: '₹500' }, { name: 'Full Legs Waxing', price: '₹800' }, { name: 'Full Body Waxing', price: '₹2500' }, { name: 'Lower Back / Upper Back Waxing', price: '₹600' }, { name: 'Midriff Waxing', price: '₹600' }] },
+  { group: 'Bridal', icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>', services: [{ name: 'Bridal Makeup (HD)', price: '₹15000' }, { name: 'Airbrush Makeup', price: '₹20000' }, { name: 'Saree Draping', price: '₹2000' }, { name: 'Engagement Makeup', price: '₹10000' }, { name: 'Reception Makeup', price: '₹12000' }, { name: 'Party Makeup', price: '₹5000' }, { name: 'Bridal Hairstyle', price: '₹3000' }] },
+  { group: 'Manicure & Pedicure', icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>', services: [{ name: 'Organic Manicure', price: '₹600' }, { name: 'Aromatic Manicure', price: '₹800' }, { name: 'Chocolate Mint Manicure', price: '₹1000' }, { name: 'Fine Wine Manicure', price: '₹1200' }, { name: 'No More Tan Manicure', price: '₹1000' }, { name: 'Organic Pedicure', price: '₹800' }, { name: 'Aromatic Pedicure', price: '₹1000' }, { name: 'Chocolate Mint Pedicure', price: '₹1200' }, { name: 'Fine Wine Pedicure', price: '₹1500' }, { name: 'No More Tan Pedicure', price: '₹1200' }, { name: 'Crystal Spa Manicure', price: '₹1500' }, { name: 'Candle Spa Manicure', price: '₹1800' }, { name: 'Bombshell Manicure', price: '₹2000' }, { name: 'Crystal Spa Pedicure', price: '₹1800' }, { name: 'Candle Spa Pedicure', price: '₹2000' }, { name: 'Bombshell Pedicure', price: '₹2500' }, { name: 'Heel Peel Treatment', price: '₹1500' }, { name: 'Ayurasa Pedicure / Manicure', price: '₹3000' }] }
+];
+
+const customServiceSelect = document.getElementById('customServiceSelect');
+const customServiceTrigger = customServiceSelect ? customServiceSelect.querySelector('.custom-select-trigger') : null;
+const customServiceDropdown = customServiceSelect ? customServiceSelect.querySelector('.custom-select-dropdown') : null;
+const customServiceOptionsContainer = document.getElementById('customServiceOptions');
+const customServiceSearch = customServiceSelect ? customServiceSelect.querySelector('.custom-select-search') : null;
+const customSelectText = customServiceSelect ? customServiceSelect.querySelector('.custom-select-text') : null;
+const hiddenNativeSelect = document.getElementById('bService');
+
+// Debounce Utility
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => { clearTimeout(timeout); func(...args); };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+if (customServiceSelect && hiddenNativeSelect) {
+  // Populate hidden native select and custom dropdown accordion
+  customServicesData.forEach((cat, index) => {
+    // Native OptGroup
+    const optgroup = document.createElement('optgroup');
+    optgroup.label = cat.group;
+    hiddenNativeSelect.appendChild(optgroup);
+
+    // Accordion Header
+    const groupLabel = document.createElement('div');
+    groupLabel.className = 'custom-optgroup-label';
+    groupLabel.innerHTML = `${cat.icon} <span>${cat.group}</span> <svg class="acc-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>`;
+    
+    // Accordion Body
+    const groupBody = document.createElement('div');
+    groupBody.className = 'custom-optgroup-body';
+    
+    // Toggle Logic
+    groupLabel.addEventListener('click', () => {
+      const isOpen = groupBody.classList.contains('open');
+      document.querySelectorAll('.custom-optgroup-body').forEach(b => b.classList.remove('open'));
+      document.querySelectorAll('.custom-optgroup-label').forEach(l => l.classList.remove('open'));
+      if (!isOpen) {
+        groupBody.classList.add('open');
+        groupLabel.classList.add('open');
+      }
+    });
+
+    cat.services.forEach(srvObj => {
+      // Native Option
+      const opt = document.createElement('option');
+      opt.value = srvObj.name;
+      opt.textContent = srvObj.name;
+      optgroup.appendChild(opt);
+
+      // Custom Option
+      const optDiv = document.createElement('div');
+      optDiv.className = 'custom-option';
+      optDiv.dataset.value = srvObj.name;
+      optDiv.innerHTML = `
+        <div class="opt-name"><svg class="opt-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> ${srvObj.name}</div>
+        <div class="opt-price">${srvObj.price}</div>
+      `;
+      
+      optDiv.addEventListener('click', (e) => {
+        e.stopPropagation();
+        hiddenNativeSelect.value = srvObj.name;
+        customSelectText.textContent = srvObj.name;
+        customSelectText.style.color = 'var(--gold)';
+        closeCustomDropdown();
+      });
+
+      groupBody.appendChild(optDiv);
+    });
+
+    customServiceOptionsContainer.appendChild(groupLabel);
+    customServiceOptionsContainer.appendChild(groupBody);
+    
+    // Open first category by default
+    if (index === 0) {
+      groupBody.classList.add('open');
+      groupLabel.classList.add('open');
+    }
+  });
+
+  let dropdownOpen = false;
+
+  const openCustomDropdown = () => {
+    if (dropdownOpen) return;
+    dropdownOpen = true;
+    customServiceSelect.classList.add('open');
+    customServiceDropdown.style.display = 'block';
+    gsap.fromTo(customServiceDropdown, 
+      { opacity: 0, y: 10 },
+      { opacity: 1, y: 0, duration: 0.3, ease: 'power3.out' }
+    );
+    customServiceSearch.focus();
+  };
+
+  const closeCustomDropdown = () => {
+    if (!dropdownOpen) return;
+    dropdownOpen = false;
+    customServiceSelect.classList.remove('open');
+    gsap.to(customServiceDropdown, {
+      opacity: 0, y: 10, duration: 0.2, ease: 'power2.in',
+      onComplete: () => { customServiceDropdown.style.display = 'none'; }
+    });
+    customServiceSearch.value = '';
+    filterOptions('');
+  };
+
+  customServiceTrigger.addEventListener('click', () => {
+    dropdownOpen ? closeCustomDropdown() : openCustomDropdown();
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!customServiceSelect.contains(e.target)) {
+      closeCustomDropdown();
+    }
+  });
+
+  // Debounced Search Filter
+  const filterOptions = (term) => {
+    const lowerTerm = term.toLowerCase();
+    const categories = document.querySelectorAll('.custom-optgroup-label');
+    const bodies = document.querySelectorAll('.custom-optgroup-body');
+    
+    bodies.forEach((body, idx) => {
+      let hasVisibleChild = false;
+      const options = body.querySelectorAll('.custom-option');
+      
+      options.forEach(opt => {
+        const match = opt.textContent.toLowerCase().includes(lowerTerm);
+        opt.classList.toggle('hidden', !match);
+        if (match) hasVisibleChild = true;
+      });
+
+      categories[idx].classList.toggle('hidden', !hasVisibleChild);
+      
+      // Auto-expand categories if searching
+      if (term.length > 0 && hasVisibleChild) {
+        body.classList.add('open');
+        categories[idx].classList.add('open');
+      } else if (term.length === 0) {
+        // Reset to default (only first open)
+        if (idx === 0) {
+          body.classList.add('open');
+          categories[idx].classList.add('open');
+        } else {
+          body.classList.remove('open');
+          categories[idx].classList.remove('open');
+        }
+      }
+    });
+  };
+
+  customServiceSearch.addEventListener('input', debounce((e) => filterOptions(e.target.value), 300));
+}
+
 document.getElementById('bookingForm').addEventListener('submit', (e) => {
   e.preventDefault();
   const name    = document.getElementById('bName').value.trim();
@@ -1024,10 +1194,17 @@ document.getElementById('bookingForm').addEventListener('submit', (e) => {
   const service = document.getElementById('bService').value;
   const date    = document.getElementById('bDate').value;
   const time    = document.getElementById('bTime').value;
+  
   if (!name || !phone || !service || !date || !time) return;
+  
   const message = `Hello STUDIE'O7, I would like to book an appointment.\n\nName: ${name}\nPhone Number: ${phone}\nService: ${service}\nPreferred Date: ${date}\nPreferred Time: ${time}`;
   window.open(`https://wa.me/919894737044?text=${encodeURIComponent(message)}`, '_blank');
+  
   e.target.reset();
+  if (customSelectText) {
+    customSelectText.textContent = 'Select a service';
+    customSelectText.style.color = 'var(--text)';
+  }
 });
 
 // ── 16. BOOK NAV BTN PULSE ────────────────────────
