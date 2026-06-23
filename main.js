@@ -871,9 +871,6 @@ const categoryImages = {
   'color': [
     'galleryimg/hc1.jpeg', 'galleryimg/hc2.jpeg','galleryimg/hc3.jpeg',
     
-  ],
-  'makeup': [
-    'galleryimg/b5.jpeg', 'galleryimg/b6.jpeg', 'galleryimg/b7.jpeg', 'galleryimg/b8.jpeg'
   ]
 };
 
