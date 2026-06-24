@@ -1020,15 +1020,392 @@ document.querySelectorAll('.faq-item').forEach(item => {
 
 // Custom Services Data
 const customServicesData = [
-  { group: 'Cut & Styling', icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12m0-12L6 18"/></svg>', services: [{ name: 'Hair Cut (Women)', price: '₹500' }, { name: 'Hair Cut (Men)', price: '₹200' }, { name: 'Hair Cut (Kids)', price: '₹150' }, { name: 'Blow Dry', price: '₹500' }, { name: 'Advanced Styling', price: '₹1100' }, { name: 'Hair Wash', price: '₹300' }] },
-  { group: 'Hair Colour', icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>', services: [{ name: 'Root Touch Up', price: '₹1300' }, { name: 'Global Colour (Short)', price: '₹2000' }, { name: 'Global Colour (Medium)', price: '₹2500' }, { name: 'Global Colour (Long)', price: '₹3500' }, { name: 'Highlights (Short)', price: '₹2500' }, { name: 'Highlights (Medium)', price: '₹3500' }, { name: 'Highlights (Long)', price: '₹4500' }, { name: 'Balayage', price: '₹7500' }] },
-  { group: 'Hair Texture', icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M4 6h16M4 18h16"/></svg>', services: [{ name: 'Smoothening (Short)', price: '₹5000' }, { name: 'Smoothening (Medium)', price: '₹7000' }, { name: 'Smoothening (Long)', price: '₹9000' }, { name: 'Rebonding (Short)', price: '₹5000' }, { name: 'Rebonding (Medium)', price: '₹7000' }, { name: 'Rebonding (Long)', price: '₹9000' }, { name: 'Cysteine Treatment', price: '₹6000' }, { name: 'Nanoplastia Treatment', price: '₹8000' }] },
-  { group: 'Hair Spa', icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>', services: [{ name: 'Moisturizing Hair Spa', price: '₹1200' }, { name: 'Color Save Hair Spa', price: '₹1500' }, { name: 'Dandruff Control Spa', price: '₹1500' }, { name: 'Damage Repair Spa', price: '₹1800' }, { name: 'Anti Hair Fall Spa', price: '₹1500' }, { name: 'Luxury Hair Spa', price: '₹2500' }] },
-  { group: 'Skin Care', icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>', services: [{ name: 'Basic Clean Up', price: '₹800' }, { name: 'Fruit Clean Up', price: '₹1000' }, { name: 'Detan Clean Up', price: '₹1200' }, { name: 'Gold Clean Up', price: '₹1500' }, { name: 'Hydra Facial', price: '₹3500' }, { name: 'Anti Acne Treatment', price: '₹2000' }, { name: 'Brightening Treatment', price: '₹2500' }] },
-  { group: 'Body Care', icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/></svg>', services: [{ name: 'Underarms Detan', price: '₹300' }, { name: 'Half Arms Detan', price: '₹500' }, { name: 'Full Arms Detan', price: '₹800' }, { name: 'Half Legs Detan', price: '₹600' }, { name: 'Full Legs Detan', price: '₹1000' }, { name: 'Lower Back / Upper Back Detan', price: '₹800' }, { name: 'Abdomen Detan', price: '₹800' }, { name: 'Full Body Detan', price: '₹3000' }, { name: 'Underarms Waxing', price: '₹200' }, { name: 'Half Arms Waxing', price: '₹400' }, { name: 'Full Arms Waxing', price: '₹600' }, { name: 'Half Legs Waxing', price: '₹500' }, { name: 'Full Legs Waxing', price: '₹800' }, { name: 'Full Body Waxing', price: '₹2500' }, { name: 'Lower Back / Upper Back Waxing', price: '₹600' }, { name: 'Midriff Waxing', price: '₹600' }] },
-  { group: 'Bridal', icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>', services: [{ name: 'Bridal Makeup (HD)', price: '₹15000' }, { name: 'Airbrush Makeup', price: '₹20000' }, { name: 'Saree Draping', price: '₹2000' }, { name: 'Engagement Makeup', price: '₹10000' }, { name: 'Reception Makeup', price: '₹12000' }, { name: 'Party Makeup', price: '₹5000' }, { name: 'Bridal Hairstyle', price: '₹3000' }] },
-  { group: 'Manicure & Pedicure', icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>', services: [{ name: 'Organic Manicure', price: '₹600' }, { name: 'Aromatic Manicure', price: '₹800' }, { name: 'Chocolate Mint Manicure', price: '₹1000' }, { name: 'Fine Wine Manicure', price: '₹1200' }, { name: 'No More Tan Manicure', price: '₹1000' }, { name: 'Organic Pedicure', price: '₹800' }, { name: 'Aromatic Pedicure', price: '₹1000' }, { name: 'Chocolate Mint Pedicure', price: '₹1200' }, { name: 'Fine Wine Pedicure', price: '₹1500' }, { name: 'No More Tan Pedicure', price: '₹1200' }, { name: 'Crystal Spa Manicure', price: '₹1500' }, { name: 'Candle Spa Manicure', price: '₹1800' }, { name: 'Bombshell Manicure', price: '₹2000' }, { name: 'Crystal Spa Pedicure', price: '₹1800' }, { name: 'Candle Spa Pedicure', price: '₹2000' }, { name: 'Bombshell Pedicure', price: '₹2500' }, { name: 'Heel Peel Treatment', price: '₹1500' }, { name: 'Ayurasa Pedicure / Manicure', price: '₹3000' }] }
+  {
+     group: "Cut & Styling",
+    icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12m0-12L6 18"/></svg>',
+    services: [
+      { name: "Classic Haircut", price: "₹200" },
+      { name: "Advance Haircut", price: "₹250" },
+      { name: "Kids Cut (Below 6 Yrs.)", price: "₹150" },
+      { name: "Beard Zero Trim", price: "₹100" },
+      { name: "Classic Shave", price: "₹100" },
+      { name: "Beard Design", price: "₹170" },
+      { name: "Head Shave", price: "₹200" },
+
+      { name: "Creative Cuts (N-MEM)", price: "₹1500" },
+      { name: "Creative Cuts (MEM)", price: "₹1300" },
+
+      { name: "Classic Cuts (N-MEM)", price: "₹500" },
+      { name: "Classic Cuts (MEM)", price: "₹400" },
+
+      { name: "Layer Cut (N-MEM)", price: "₹1000" },
+      { name: "Layer Cut (MEM)", price: "₹900" },
+
+      { name: "Fringe | Bangs (N-MEM)", price: "₹250" },
+      { name: "Fringe | Bangs (MEM)", price: "₹200" },
+
+      { name: "Kids Cut (Below 6 Yrs.) Women (N-MEM)", price: "₹200" },
+      { name: "Kids Cut (Below 6 Yrs.) Women (MEM)", price: "₹170" },
+
+      { name: "Ironing - Temporary Straightening Medium Length (N-MEM)", price: "₹900" },
+      { name: "Ironing - Temporary Straightening Medium Length (MEM)", price: "₹800" },
+      { name: "Ironing - Temporary Straightening Long Length (N-MEM)", price: "₹1200" },
+      { name: "Ironing - Temporary Straightening Long Length (MEM)", price: "₹1100" },
+
+      { name: "Tonging - Temporary Curls & Waves Medium Length (N-MEM)", price: "₹1100" },
+      { name: "Tonging - Temporary Curls & Waves Medium Length (MEM)", price: "₹1000" },
+      { name: "Tonging - Temporary Curls & Waves Long Length (N-MEM)", price: "₹1100" },
+      { name: "Tonging - Temporary Curls & Waves Long Length (MEM)", price: "₹1000" },
+
+      { name: "Blow Dry - Shampooing & Conditioning Medium Length (N-MEM)", price: "₹500" },
+      { name: "Blow Dry - Shampooing & Conditioning Medium Length (MEM)", price: "₹400" },
+      { name: "Blow Dry - Shampooing & Conditioning Long Length (N-MEM)", price: "₹600" },
+      { name: "Blow Dry - Shampooing & Conditioning Long Length (MEM)", price: "₹500" },
+
+      { name: "Eyebrow Shaping (N-MEM)", price: "₹70" },
+      { name: "Eyebrow Shaping (MEM)", price: "₹50" },
+
+      { name: "Upper Lip (N-MEM)", price: "₹70" },
+      { name: "Upper Lip (MEM)", price: "₹50" },
+
+      { name: "Fore Head (N-MEM)", price: "₹70" },
+      { name: "Fore Head (MEM)", price: "₹50" },
+
+      { name: "Eyebrow + Upper Lip (N-MEM)", price: "₹70" },
+      { name: "Eyebrow + Upper Lip (MEM)", price: "₹50" },
+
+      { name: "Full Face (N-MEM)", price: "₹100" },
+      { name: "Full Face (MEM)", price: "₹80" },
+
+      { name: "Chin (N-MEM)", price: "₹200" },
+      { name: "Chin (MEM)", price: "₹170" }
+    ]
+  },
+{
+  group: "Hair Colour",
+  icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>',
+  services: [
+    { name: "Root Touch-up (Ammonia) (N-MEM)", price: "₹1300" },
+    { name: "Root Touch-up (Ammonia) (MEM)", price: "₹1100" },
+
+    { name: "Root Touch-up (Ammonia Free) (N-MEM)", price: "₹1700" },
+    { name: "Root Touch-up (Ammonia Free) (MEM)", price: "₹1500" },
+
+    { name: "Global Hair Color - Med (Ammonia) (N-MEM)", price: "₹2000" },
+    { name: "Global Hair Color - Med (Ammonia) (MEM)", price: "₹1800" },
+
+    { name: "Global Hair Color - Long (Ammonia) (N-MEM)", price: "₹2500" },
+    { name: "Global Hair Color - Long (Ammonia) (MEM)", price: "₹2200" },
+
+    { name: "Global Hair Color - Med (Ammonia Free) (N-MEM)", price: "₹3500" },
+    { name: "Global Hair Color - Med (Ammonia Free) (MEM)", price: "₹3000" },
+
+    { name: "Global Hair Color - Long (Ammonia Free) (N-MEM)", price: "₹4500" },
+    { name: "Global Hair Color - Long (Ammonia Free) (MEM)", price: "₹4000" },
+
+    { name: "Global - Med (Fashion Color) (N-MEM)", price: "₹4000" },
+    { name: "Global - Med (Fashion Color) (MEM)", price: "₹3500" },
+
+    { name: "Global - Long (Fashion Color) (N-MEM)", price: "₹5000" },
+    { name: "Global - Long (Fashion Color) (MEM)", price: "₹4500" },
+
+    { name: "Global With Highlights | Balayage (N-MEM)", price: "₹7500" },
+    { name: "Global With Highlights | Balayage (MEM)", price: "₹7500" },
+
+    { name: "Only Highlights (Per Streak) (N-MEM)", price: "₹400" },
+    { name: "Only Highlights (Per Streak) (MEM)", price: "₹300" },
+
+    { name: "Classic Coloring (Ammonia) (N-MEM)", price: "₹800" },
+    { name: "Classic Coloring (Ammonia) (MEM)", price: "₹700" },
+
+    { name: "Classic Coloring (Ammonia Free) (N-MEM)", price: "₹1000" },
+    { name: "Classic Coloring (Ammonia Free) (MEM)", price: "₹900" },
+
+    { name: "Premium Hair Color (Fashion Color) (N-MEM)", price: "₹1500" },
+    { name: "Premium Hair Color (Fashion Color) (MEM)", price: "₹1200" },
+
+    { name: "Moustache Color (N-MEM)", price: "₹200" },
+    { name: "Moustache Color (MEM)", price: "₹170" },
+
+    { name: "Beard Coloring (N-MEM)", price: "₹400" },
+    { name: "Beard Coloring (MEM)", price: "₹350" },
+
+    { name: "Beard + Moustache Coloring (N-MEM)", price: "₹550" },
+    { name: "Beard + Moustache Coloring (MEM)", price: "₹450" }
+  ]
+},
+
+  {
+  group: "Hair Texture",
+  icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M4 6h16M4 18h16"/></svg>',
+  services: [
+    { name: "Straightening / Smoothening *", price: "₹7000" },
+    { name: "Keratin Treatment *", price: "₹8000" },
+    { name: "Partial Straightening / Smoothening *", price: "₹5000" },
+    { name: "Perming *", price: "₹6000" }
+  ]
+},
+{
+    group: "Hair Spa",
+    icon: "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6\"/></svg>",
+    services: [
+        { name: "Head Massage - Men (N-MEM)", price: "₹400" },
+        { name: "Head Massage - Men (MEM)", price: "₹300" },
+
+        { name: "Head Massage - Women (N-MEM)", price: "₹800" },
+        { name: "Head Massage - Women (MEM)", price: "₹700" },
+
+        { name: "Moisturizing Hair Spa - Short (N-MEM)", price: "₹800" },
+        { name: "Moisturizing Hair Spa - Medium (N-MEM)", price: "₹1000" },
+        { name: "Moisturizing Hair Spa - Long (N-MEM)", price: "₹1200" },
+
+        { name: "Moisturizing Hair Spa - Short (MEM)", price: "₹700" },
+        { name: "Moisturizing Hair Spa - Medium (MEM)", price: "₹900" },
+        { name: "Moisturizing Hair Spa - Long (MEM)", price: "₹1100" },
+
+        { name: "Color Save Hair Spa - Short (N-MEM)", price: "₹1200" },
+        { name: "Color Save Hair Spa - Medium (N-MEM)", price: "₹1400" },
+        { name: "Color Save Hair Spa - Long (N-MEM)", price: "₹1500" },
+
+        { name: "Color Save Hair Spa - Short (MEM)", price: "₹1100" },
+        { name: "Color Save Hair Spa - Medium (MEM)", price: "₹1300" },
+        { name: "Color Save Hair Spa - Long (MEM)", price: "₹1400" },
+
+        { name: "Frizz Control Hair Spa - Short (N-MEM)", price: "₹1500" },
+        { name: "Frizz Control Hair Spa - Medium (N-MEM)", price: "₹1700" },
+        { name: "Frizz Control Hair Spa - Long (N-MEM)", price: "₹1800" },
+
+        { name: "Absolute Repair - Short (N-MEM)", price: "₹2200" },
+        { name: "Absolute Repair - Short (MEM)", price: "₹2000" },
+        { name: "Absolute Repair - Medium (N-MEM)", price: "₹2400" },
+        { name: "Absolute Repair - Medium (MEM)", price: "₹2200" },
+        { name: "Absolute Repair - Long (N-MEM)", price: "₹2700" },
+        { name: "Absolute Repair - Long (MEM)", price: "₹2500" }
+    ]
+},
+
+  {
+  group: "Skin Care",
+  icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+  services: [
+    // Addon Face Masks
+    { name: "Skin Tightening Mask (N-MEM)", price: "₹1500" },
+    { name: "Skin Tightening Mask (MEM)", price: "₹1200" },
+
+    { name: "Vibrant Glow Mask (N-MEM)", price: "₹1500" },
+    { name: "Vibrant Glow Mask (MEM)", price: "₹1200" },
+
+    { name: "24K Gold Mask (N-MEM)", price: "₹1500" },
+    { name: "24K Gold Mask (MEM)", price: "₹1200" },
+
+    { name: "Acne Purifying Mask (N-MEM)", price: "₹1500" },
+    { name: "Acne Purifying Mask (MEM)", price: "₹1200" },
+
+    { name: "Lightening & Brightening Mask (N-MEM)", price: "₹1500" },
+    { name: "Lightening & Brightening Mask (MEM)", price: "₹1200" },
+
+    // Clean Up
+    { name: "Face & Neck - Detan (N-MEM)", price: "₹700" },
+    { name: "Face & Neck - Detan (MEM)", price: "₹600" },
+
+    { name: "Express Cleanup (N-MEM)", price: "₹800" },
+    { name: "Express Cleanup (MEM)", price: "₹700" },
+
+    { name: "Organic Clean Up (N-MEM)", price: "₹1000" },
+    { name: "Organic Clean Up (MEM)", price: "₹900" },
+
+    { name: "Herbal Facial (N-MEM)", price: "₹800" },
+    { name: "Herbal Facial (MEM)", price: "₹700" },
+
+    // Exclusive Facials
+    { name: "Fruit Facial (N-MEM)", price: "₹1000" },
+    { name: "Fruit Facial (MEM)", price: "₹800" },
+
+    { name: "Instaglow Diamond Facial (N-MEM)", price: "₹1200" },
+    { name: "Instaglow Diamond Facial (MEM)", price: "₹1000" },
+
+    { name: "Kumkumadi Facial (N-MEM)", price: "₹1200" },
+    { name: "Kumkumadi Facial (MEM)", price: "₹1000" },
+
+    { name: "Red Wine Facial (N-MEM)", price: "₹1200" },
+    { name: "Red Wine Facial (MEM)", price: "₹1000" },
+
+    // Premium Facials
+    { name: "Chocolate Facial (N-MEM)", price: "₹1800" },
+    { name: "Chocolate Facial (MEM)", price: "₹1500" },
+
+    { name: "Dead Sea Facial (N-MEM)", price: "₹2000" },
+    { name: "Dead Sea Facial (MEM)", price: "₹1800" },
+
+    { name: "Fair & Glow Facial (N-MEM)", price: "₹2200" },
+    { name: "Fair & Glow Facial (MEM)", price: "₹2000" },
+
+    { name: "Age Reversal Facial (N-MEM)", price: "₹2200" },
+    { name: "Age Reversal Facial (MEM)", price: "₹2000" },
+
+    { name: "Gold Facial (N-MEM)", price: "₹2400" },
+    { name: "Gold Facial (MEM)", price: "₹2200" },
+
+    { name: "Sparkle Facial (N-MEM)", price: "₹2400" },
+    { name: "Sparkle Facial (MEM)", price: "₹2200" },
+
+    { name: "Anti-Acne Facial (N-MEM)", price: "₹2400" },
+    { name: "Anti-Acne Facial (MEM)", price: "₹2200" },
+
+    { name: "Anti Tan Facial (N-MEM)", price: "₹2400" },
+    { name: "Anti Tan Facial (MEM)", price: "₹2200" },
+
+    { name: "Vitamin C Glow Facial (N-MEM)", price: "₹2400" },
+    { name: "Vitamin C Glow Facial (MEM)", price: "₹2200" },
+
+    // Luxury Facials
+    { name: "24K Gold Facial (N-MEM)", price: "₹3500" },
+    { name: "24K Gold Facial (MEM)", price: "₹3200" },
+
+    { name: "Skin Lightening Facial (N-MEM)", price: "₹3500" },
+    { name: "Skin Lightening Facial (MEM)", price: "₹3200" },
+
+    { name: "Advance Age Reversal Facial (N-MEM)", price: "₹3500" },
+    { name: "Advance Age Reversal Facial (MEM)", price: "₹3200" },
+
+    { name: "Advance Anti-Acne Facial (N-MEM)", price: "₹4000" },
+    { name: "Advance Anti-Acne Facial (MEM)", price: "₹3700" },
+
+    { name: "Skin Lightening & Brightening (N-MEM)", price: "₹4000" },
+    { name: "Skin Lightening & Brightening (MEM)", price: "₹3700" },
+
+    { name: "Bridal Glow Facial (N-MEM)", price: "₹4000" },
+    { name: "Bridal Glow Facial (MEM)", price: "₹3700" },
+
+    // Hydra Facials
+    { name: "Hydra Facial (N-MEM)", price: "₹6000" },
+    { name: "Hydra Facial (MEM)", price: "₹5000" }
+  ]
+},
+
+  {
+  group: "Body Care",
+  icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/></svg>',
+  services: [
+    // Body Care - Detan
+    { name: "Underarms Detan (N-MEM)", price: "₹300" },
+    { name: "Underarms Detan (MEM)", price: "₹250" },
+
+    { name: "Half Arms Detan (N-MEM)", price: "₹500" },
+    { name: "Half Arms Detan (MEM)", price: "₹450" },
+
+    { name: "Full Arms Detan (N-MEM)", price: "₹800" },
+    { name: "Full Arms Detan (MEM)", price: "₹700" },
+
+    { name: "Half Legs Detan (N-MEM)", price: "₹600" },
+    { name: "Half Legs Detan (MEM)", price: "₹550" },
+
+    { name: "Full Legs Detan (N-MEM)", price: "₹1000" },
+    { name: "Full Legs Detan (MEM)", price: "₹900" },
+
+    { name: "Lower Back / Upper Back Detan (N-MEM)", price: "₹600" },
+    { name: "Lower Back / Upper Back Detan (MEM)", price: "₹500" },
+
+    { name: "Abdomen Detan (N-MEM)", price: "₹500" },
+    { name: "Abdomen Detan (MEM)", price: "₹450" },
+
+    { name: "Full Body Detan (N-MEM)", price: "₹2500" },
+    { name: "Full Body Detan (MEM)", price: "₹2200" },
+
+    // Waxing Services
+    { name: "Underarms Waxing (N-MEM)", price: "₹150" },
+    { name: "Underarms Waxing (MEM)", price: "₹120" },
+
+    { name: "Half Arms Waxing (N-MEM)", price: "₹350" },
+    { name: "Half Arms Waxing (MEM)", price: "₹300" },
+
+    { name: "Full Arms Waxing (N-MEM)", price: "₹600" },
+    { name: "Full Arms Waxing (MEM)", price: "₹500" },
+
+    { name: "Half Legs Waxing (N-MEM)", price: "₹450" },
+    { name: "Half Legs Waxing (MEM)", price: "₹400" },
+
+    { name: "Full Legs Waxing (N-MEM)", price: "₹800" },
+    { name: "Full Legs Waxing (MEM)", price: "₹700" },
+
+    { name: "Full Body Waxing (N-MEM)", price: "₹2200" },
+    { name: "Full Body Waxing (MEM)", price: "₹2000" },
+
+    { name: "Lower Back / Upper Back Waxing (N-MEM)", price: "₹400" },
+    { name: "Lower Back / Upper Back Waxing (MEM)", price: "₹350" },
+
+    { name: "Midriff Waxing (N-MEM)", price: "₹300" },
+    { name: "Midriff Waxing (MEM)", price: "₹250" }
+  ]
+},
+{
+  group: "Manicure & Pedicure",
+  icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>',
+  services: [
+    // Manicures
+    { name: "Organic Manicure (N-MEM)", price: "₹600" },
+    { name: "Organic Manicure (MEM)", price: "₹500" },
+
+    { name: "Aromatic Manicure (N-MEM)", price: "₹800" },
+    { name: "Aromatic Manicure (MEM)", price: "₹700" },
+
+    { name: "Chocolate Mint Manicure (N-MEM)", price: "₹1000" },
+    { name: "Chocolate Mint Manicure (MEM)", price: "₹800" },
+
+    { name: "Fine Wine Manicure (N-MEM)", price: "₹1200" },
+    { name: "Fine Wine Manicure (MEM)", price: "₹1000" },
+
+    { name: "No More Tan Manicure (N-MEM)", price: "₹1200" },
+    { name: "No More Tan Manicure (MEM)", price: "₹1000" },
+
+    // Luxury Manicures
+    { name: "Crystal Spa Manicure (N-MEM)", price: "₹1800" },
+    { name: "Crystal Spa Manicure (MEM)", price: "₹1500" },
+
+    { name: "Candle Spa Manicure (N-MEM)", price: "₹1800" },
+    { name: "Candle Spa Manicure (MEM)", price: "₹1500" },
+
+    { name: "Bombshell Manicure (N-MEM)", price: "₹2200" },
+    { name: "Bombshell Manicure (MEM)", price: "₹2000" },
+
+    // Pedicures
+    { name: "Organic Pedicure (N-MEM)", price: "₹700" },
+    { name: "Organic Pedicure (MEM)", price: "₹600" },
+
+    { name: "Aromatic Pedicure (N-MEM)", price: "₹1000" },
+    { name: "Aromatic Pedicure (MEM)", price: "₹800" },
+
+    { name: "Chocolate Mint Pedicure (N-MEM)", price: "₹1200" },
+    { name: "Chocolate Mint Pedicure (MEM)", price: "₹1000" },
+
+    { name: "Fine Wine Pedicure (N-MEM)", price: "₹1500" },
+    { name: "Fine Wine Pedicure (MEM)", price: "₹1400" },
+
+    { name: "No More Tan Pedicure (N-MEM)", price: "₹1500" },
+    { name: "No More Tan Pedicure (MEM)", price: "₹1400" },
+
+    // Luxury Pedicures
+    { name: "Crystal Spa Pedicure (N-MEM)", price: "₹2000" },
+    { name: "Crystal Spa Pedicure (MEM)", price: "₹1800" },
+
+    { name: "Candle Spa Pedicure (N-MEM)", price: "₹2000" },
+    { name: "Candle Spa Pedicure (MEM)", price: "₹1800" },
+
+    { name: "Bombshell Pedicure (N-MEM)", price: "₹2500" },
+    { name: "Bombshell Pedicure (MEM)", price: "₹2400" },
+
+    // Ayurasa
+    { name: "Ayurasa Pedicure / Manicure (N-MEM)", price: "₹3000" },
+    { name: "Ayurasa Pedicure / Manicure (MEM)", price: "₹2800" },
+
+    // Heel Treatment
+    { name: "Heel Peel (N-MEM)", price: "₹2500" },
+    { name: "Heel Peel (MEM)", price: "₹2400" }
+  ]
+}
 ];
+
+
 
 const customServiceSelect = document.getElementById('customServiceSelect');
 const customServiceTrigger = customServiceSelect ? customServiceSelect.querySelector('.custom-select-trigger') : null;
